@@ -12,6 +12,14 @@ module.exports = {
         res.status(200).send(randomCompliment);
     },
 
+    getFortune: (req, res) => {
+        const fortunes =["Believe in yourself!", "have you considered not being sad?", "sorry you're not a winner.", "Help I'm stuck in a fortune string writing factory", "do better next time", "why are all the fortunes mean?"]
+        let randomIndex = Math.floor(Math.random() * fortunes.length)
+        let randomFortune = fortunes[randomIndex]
+
+        res.status(200).send(randomFortune)
+    },
+        
     getPokemon: (req, res) => {
         res.status(200).send(pokeArr)
     },

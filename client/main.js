@@ -1,4 +1,5 @@
 const complimentBtn = document.getElementById("complimentButton")
+const fortuneBtn = document.querySelector("#fortuneButton")
 let getPokemonBtn = document.querySelector("#getPokemon")
 let pokeDiv = document.querySelector("#pokedisp")
 let addPokeBtn = document.querySelector("#addPokeBtn")
@@ -18,6 +19,14 @@ const getCompliment = () => {
             alert(data);
     });
 };
+
+const getFortune = () => {
+    axios.get("http://localhost:4000/api/fortune/")
+        .then(res => {
+            const data = res.data;
+            alert(data)
+        })
+}
 
 const getPokemon = () => {
     pokeDiv.innerHTML = ""
@@ -81,5 +90,6 @@ complimentBtn.addEventListener('click', getCompliment)
 getPokemonBtn.addEventListener('click', getPokemon)
 addPokeBtn.addEventListener('click', addPokemon)
 releaseBtn.addEventListener('click', deletePokemon)
+fortuneBtn.addEventListener("click", getFortune)
 
 getPokemon()
